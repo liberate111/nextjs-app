@@ -1,6 +1,10 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter, Sarabun } from 'next/font/google'
+import '@mantine/core/styles.css';
+import {theme} from '@/src/theme';
+
+import { MantineProvider, ColorSchemeScript } from '@mantine/core';
 
 const inter = Inter({ subsets: ['latin'] })
 export const sarabun = Sarabun({
@@ -20,7 +24,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={sarabun.className}>{children}</body>
+      <body>
+        <MantineProvider theme={theme}>{children}</MantineProvider>
+      </body>
     </html>
   )
 }

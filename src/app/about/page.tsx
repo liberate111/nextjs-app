@@ -1,3 +1,4 @@
+import { Center, Container, Title, Text } from '@mantine/core';
 import { Metadata } from 'next'
 import Link from 'next/link'
  
@@ -14,11 +15,16 @@ export default function Page() {
     // handleErr();
     
     return (
-    <main>
-      about Page
+      <Container bg='gray.3' py='sm' size={'lg'} mt={'sm'}>
+        <Center>
+          <Title order={1}>About page</Title>
+        </Center>
 
-      <br />
-      <Link href="/" replace={true}>Home</Link>
-    </main>
+        <Text fz={'sm'} my={'sm'} c={'org'}> testttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt</Text>
+        <br />
+        <Link href="/" replace={true}>Home</Link>
+
+      </Container>
+   
   );
 }

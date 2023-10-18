@@ -4,6 +4,7 @@ import {AppHeader, AppHeader2} from '../components/AppHeader'
 import AppFeature from '../components/AppFeature'
 import styles from './page.module.css'
 import Link from 'next/link'
+import { Button } from '@mantine/core'
 
 export default function Home() {
   const host = process.env.SQL_SERVER_HOST;
@@ -19,6 +20,7 @@ export default function Home() {
       <br />
       <Link href="/contact">Contact</Link>
 
+      <Button> test</Button>
     </main>
   )
 }
