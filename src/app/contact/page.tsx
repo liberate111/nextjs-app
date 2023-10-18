@@ -1,26 +1,20 @@
-'use client'
-
-import { url } from 'inspector';
-import Link from 'next/link'
-import { useRouter } from 'next/navigation'
-
+import ContactContent from "./components/ContactContent";
+import Image from 'next/image';
 
 export default function Page() {
-
-    const router = useRouter();
-
-    const goToAboutPage = () => {
-        router.push('/about')
-    }
-
   return (
     <main>
       contact Page
+        <br /><br />
+      <ContactContent/>
+=
 
-      <br />
-      <Link href="/" replace={true}>Home</Link>
-      <br />
-      <button onClick={goToAboutPage}>About page</button>
+    <Image
+      src="https://thumbs.dreamstime.com/z/lovebirdpeach-197698382.jpg"
+      width={500}
+      height={500}
+      alt="Picture of the author"
+    />
     </main>
   );
 }

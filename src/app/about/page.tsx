@@ -6,9 +6,14 @@ export const metadata: Metadata = {
   description: 'about page'
 }
 
+function handleErr() {
+    throw new Error('error')
+}
+
 export default function Page() {
+    // handleErr();
     
-  return (
+    return (
     <main>
       about Page
 

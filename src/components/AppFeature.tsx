@@ -18,17 +18,17 @@ export default function AppFeature({title, count} : AppFeatureProps) {
     }
     const appName = process.env.NEXT_PUBLIC_APP_NAME;
 
-    useEffect(() => {
-        console.log('effect: every re render')
-    })
+    // useEffect(() => {
+    //     console.log('effect: every re render')
+    // })
 
-    useEffect(() => {
-        console.log('effect: once', [])
-    })
+    // useEffect(() => {
+    //     console.log('effect: once', [])
+    // })
 
-    useEffect(() => {
-        console.log('effect: only subtitle change', [subTitle])
-    })
+    // useEffect(() => {
+    //     console.log('effect: only subtitle change', [subTitle])
+    // })
 
     return (
         <main>
