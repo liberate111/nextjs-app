@@ -151,6 +151,9 @@ import { usePathname } from 'next/navigation';
               <a href="/contact" className={pathname == "/contact" ? classes.active : classes.link}>
                 Contact
               </a>
+              <a href="/product" className={pathname == "/product" ? classes.active : classes.link}>
+                Product
+              </a>
             </Group>
   
             <Group visibleFrom="sm">

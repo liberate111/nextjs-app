@@ -11,27 +11,11 @@ import { MyHero } from './components/hero/MyHero'
 import { MyFeature } from './components/feature/MyFeature'
 
 export default function Home() {
-  const host = process.env.SQL_SERVER_HOST;
+  // const host = process.env.SQL_SERVER_HOST;
   return (
     <>
       <MyHero/>
-
       <MyFeature/>
-
-    {/* <main>
-
-      <h1 className="my-text">home page</h1>
-      <h2 className={styles.myText}>home page - local scope</h2>
-      {host}
-      <AppLogo />
-      <AppFeature  title='title app feaure' count={1}/>
-
-      <Link href="/about">About</Link>
-      <br />
-      <Link href="/contact">Contact</Link>
-
-      <Button> test</Button>
-    </main> */}
     </>
   )
 }

@@ -35,7 +35,8 @@ export default async function Page() {
         </Center>
 
         <Text>{ JSON.stringify(data)}</Text>
-        <Text fz={'sm'} my={'sm'} c={'org'}> testttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt</Text>
+        <Text>{ data.data.version }</Text>
+        <Text fz={'sm'} my={'sm'} c={'org'}> test</Text>
         <br />
         <Link href="/" replace={true}>Home</Link>
 
