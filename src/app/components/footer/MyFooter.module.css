@@ -55,9 +55,9 @@
     padding-top: rem(3px);
     padding-bottom: rem(3px);
   
-    /* &:hover {
+    &:hover {
       text-decoration: underline;
-    } */
+    }
   }
   
   .title {
