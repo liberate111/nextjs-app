@@ -1,0 +1,23 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlserver"
+  url      = env("DATABASE_URL")
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model KPI {
+  id        Int       @id(map: "KPI_PK") @default(autoincrement())
+  tag       String    @db.VarChar(100)
+  status    String?   @db.VarChar(100)
+  sfrom     String?   @db.VarChar(100)
+  timestamp DateTime? @db.DateTime
+}
+
+model Tag {
+  id Int @id @default(autoincrement())
+  name String
+  @@map("tag")
+}

@@ -1,7 +1,8 @@
 import { Center, Container, Text } from "@mantine/core";
 import { ProductContent } from "./components/ProductContent";
+import { ProductResponse } from "./types/product-response";
 
-async function getProduct() {
+async function getProduct() : Promise<ProductResponse> {
   const res = await fetch('https://api.codingthailand.com/api/course', {
     // next: {revalidate: 3}
     cache: "no-store"
@@ -9,7 +10,7 @@ async function getProduct() {
   if (!res.ok) {
     throw new Error('get API error')
   }
-  return res.json();
+  return res.json() as Promise<ProductResponse>;
 }
 
 export default async function Page() {

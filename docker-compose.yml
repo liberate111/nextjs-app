@@ -7,6 +7,7 @@ volumes:
       type: none
       o: bind
       device: ./node_modules
+  sqlvolume:
 
 services:
   next-app:
@@ -20,3 +21,17 @@ services:
     restart: always
     ports:
       - 3000:3000
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: my_db
+    ports:
+      - "4000:1433"
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=Admin_1jj395qu
+      - MSSQL_PID=Developer
+      - TZ=Asia/Bangkok
+      - MSSQL_LCID=1054
+      - MSSQL_COLLATION=Thai_CI_AS
+    volumes:
+      - sqlvolume:/var/opt/mssql

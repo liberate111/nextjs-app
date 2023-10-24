@@ -1,12 +1,14 @@
-import { Badge, Card, CardSection, Group, SimpleGrid, Text, Image } from '@mantine/core';
+import { Badge, Card, CardSection, Group, SimpleGrid, Text, Image, Button } from '@mantine/core';
 import NextImage from 'next/image'
+import { ProductResponse, Product } from '../types/product-response';
+import Link from 'next/link';
 
-export function ProductContent({data} : any) {
+export function ProductContent({data} : ProductResponse) {
   return (
     <SimpleGrid cols={4}>
       {
         data &&
-        data.map((item: any, index: any) => {
+        data.map((item: Product, index: number) => {
             return (
                 <Card shadow="sm" padding="lg" radius="md" withBorder key={item.id}>
                     <CardSection>
@@ -31,6 +33,18 @@ export function ProductContent({data} : any) {
                     <Text size="sm" c="dimmed">
                         {item.detail}
                     </Text>
+
+                    <Button
+                      component={Link}
+                      href={'/product/'+item.id}
+                      variant='light'
+                      color='redTheme'
+                      fullWidth
+                      mt='md'
+                      radius='md'
+                    >
+                      Detail More
+                    </Button>
                 </Card>
             )
         })
