@@ -17,7 +17,41 @@ model KPI {
 }
 
 model Tag {
-  id Int @id @default(autoincrement())
+  id   Int    @id @default(autoincrement())
   name String
+
   @@map("tag")
+}
+
+model Department {
+  id   Int    @id @default(autoincrement())
+  name String
+}
+
+model Profile {
+  id      Int     @id @default(autoincrement())
+  address String?
+  user    User    @relation(fields: [userId], references: [id])
+  userId  Int     @unique
+
+  @@map("profiles")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  firstName String
+  lastName  String
+  profile   Profile?
+  blogs     Blog[]
+
+  @@map("users")
+}
+
+model Blog {
+  id     Int    @id @default(autoincrement())
+  title  String
+  User   User?  @relation(fields: [userId], references: [id])
+  userId Int?
+
+  @@map("blogs")
 }
