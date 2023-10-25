@@ -1,8 +1,8 @@
 
 import { Container, Title } from '@mantine/core';
 import { countTag, getTagRaw, getTags, getTagById } from './services/tag-service';
-import { SearchForm } from './components/SearchForm';
-import { searchTagAction } from './services/tag-action';
+import { SearchForm, SearchFormById } from './components/SearchForm';
+import { searchTagAction, searchTagActionById } from './services/tag-action';
 import prisma from '@/src/lib/db';
 
 export default async function Page({searchParams} : any) {
@@ -33,9 +33,9 @@ export default async function Page({searchParams} : any) {
           <SearchForm/>
         </form>
 
-        {/* <form action={searchTagActionById}>
+        <form action={searchTagActionById}>
           <SearchFormById/>
-        </form> */}
+        </form>
 
         <hr />
         {
@@ -44,9 +44,5 @@ export default async function Page({searchParams} : any) {
       </Container>
     </>
   )
-}
-
-function searchTagByName(tag: any): any[] | PromiseLike<any[]> {
-  throw new Error('Function not implemented.');
 }
 
