@@ -17,9 +17,9 @@ const prismaClientSingleton = () => {
   }).$extends({
     model: {
       tag: {
-        async searchCustomerByName(keyword: string) {
+        async searchTagByName(keyword: string) {
           return prisma.tag.findMany({
-            where: { name: { contain: `${keyword}`}},
+            where: { name: { contains: `${keyword}`}},
             orderBy: {id: 'desc'}
           })
         }

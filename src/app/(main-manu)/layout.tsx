@@ -1,4 +1,4 @@
-import './globals.css'
+import '../globals.css'
 import type { Metadata } from 'next'
 import { Inter, Sarabun } from 'next/font/google'
 import '@mantine/core/styles.css';
