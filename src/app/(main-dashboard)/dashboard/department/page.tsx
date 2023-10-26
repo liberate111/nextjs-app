@@ -1,7 +1,9 @@
+import DepartmentIndex from "./components/DepartmentIndex";
+
 export default function Page() {
   return (
     <main>
-      department
+      <DepartmentIndex></DepartmentIndex>
     </main>
   );
 }

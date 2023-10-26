@@ -2,8 +2,12 @@ import '../globals.css'
 import type { Metadata } from 'next'
 import { Inter, Sarabun } from 'next/font/google'
 import '@mantine/core/styles.css';
+import '@mantine/notifications/styles.css';
 import {theme} from '@/src/theme';
 import { MantineProvider, ColorSchemeScript } from '@mantine/core';
+import { Notifications } from '@mantine/notifications';
+import { ModalsProvider } from '@mantine/modals';
+
 import { DLayout } from './dashboard/components/DLayout';
 
 
@@ -30,7 +34,10 @@ export default function RootLayout({
         </head>
       <body>
         <MantineProvider theme={theme}>
-          <DLayout>{children}</DLayout>
+          <Notifications />
+          <ModalsProvider>
+            <DLayout>{children}</DLayout> 
+          </ModalsProvider>
         </MantineProvider>
       </body>
     </html>

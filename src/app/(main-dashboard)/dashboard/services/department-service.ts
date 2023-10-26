@@ -1,6 +1,17 @@
 import prisma from "@/src/lib/db";
 import { Prisma } from "@prisma/client";
 
+export async function findTotalRecord() {
+    return await prisma.department.count()
+}
+
+export async function findAllWithPagination(page = 1, pageSize =3) {
+    return await prisma.department.findMany({
+        skip: (page - 1) * pageSize,
+        take: pageSize,
+        orderBy: {id: "asc"}
+    })
+}
 
 export async function findAll() {
     return await prisma.department.findMany({orderBy: {id: 'desc'}})

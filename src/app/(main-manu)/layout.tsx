@@ -5,6 +5,7 @@ import '@mantine/core/styles.css';
 import {theme} from '@/src/theme';
 
 import { MantineProvider, ColorSchemeScript } from '@mantine/core';
+
 import { MyHeader } from './components/header/MyHeader';
 import { MyFooter } from './components/footer/MyFooter';
 
@@ -28,9 +29,12 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <MantineProvider theme={theme}>
+          
+
           <MyHeader/>
           {children}
           <MyFooter/>
+
         </MantineProvider>
       </body>
     </html>
