@@ -31,8 +31,8 @@ import {
     IconChevronDown,
   } from '@tabler/icons-react';
   import classes from './MyHeader.module.css';
-import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import Link from 'next/link';
   
   const mockdata = [
     {
@@ -157,7 +157,7 @@ import { usePathname } from 'next/navigation';
             </Group>
   
             <Group visibleFrom="sm">
-              <Button variant="default">Log in</Button>
+              <Button variant="default" component={Link} href="/login">Log in</Button>
               <Button>Sign up</Button>
             </Group>
   

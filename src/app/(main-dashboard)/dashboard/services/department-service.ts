@@ -9,7 +9,7 @@ export async function findAllWithPagination(page = 1, pageSize =3) {
     return await prisma.department.findMany({
         skip: (page - 1) * pageSize,
         take: pageSize,
-        orderBy: {id: "asc"}
+        orderBy: {id: "desc"}
     })
 }
 

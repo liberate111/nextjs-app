@@ -59,7 +59,7 @@ export async function DELETE({params} : {params : {id : string}}) {
         {
             status: 200
         })
-    } catch (error) {
-        return NextResponse.json(error, {status: 500})
+    } catch (error : any) {
+        return NextResponse.json(error.message, {status: 500})
     }
 }
