@@ -31,8 +31,8 @@ model Department {
 model Profile {
   id      Int     @id @default(autoincrement())
   address String?
-  user    User    @relation(fields: [userId], references: [id])
   userId  Int     @unique
+  user    User    @relation(fields: [userId], references: [id])
 
   @@map("profiles")
 }
@@ -41,8 +41,10 @@ model User {
   id        Int      @id @default(autoincrement())
   firstName String
   lastName  String
-  profile   Profile?
+  email     String   @unique
+  password  String
   blogs     Blog[]
+  profile   Profile?
 
   @@map("users")
 }
@@ -50,8 +52,8 @@ model User {
 model Blog {
   id     Int    @id @default(autoincrement())
   title  String
-  User   User?  @relation(fields: [userId], references: [id])
   userId Int?
+  User   User?  @relation(fields: [userId], references: [id])
 
   @@map("blogs")
 }

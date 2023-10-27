@@ -3,8 +3,10 @@
 import { useDisclosure } from '@mantine/hooks';
 import { AppShell, Burger, Button, Group, Skeleton , Text, Title} from '@mantine/core';
 import { NavbarSimpleColored } from './NavbarSimple';
+import { signOut } from "next-auth/react"
+import { Session } from 'next-auth';
 
-export function DLayout({children} : {children: React.ReactNode}) {
+export function DLayout({children, session} : {children: React.ReactNode, session: Session | null}) {
   const [opened, { toggle }] = useDisclosure();
 
   return (
@@ -25,7 +27,9 @@ export function DLayout({children} : {children: React.ReactNode}) {
             <Text>
                 Welcome 
             </Text>
-            <Button>
+            <Button onClick={ () => {
+              signOut({ callbackUrl: '/'})
+            }}>
                 Logout
             </Button>
           </Group>
