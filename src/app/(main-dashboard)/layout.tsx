@@ -9,7 +9,8 @@ import { Notifications } from '@mantine/notifications';
 import { ModalsProvider } from '@mantine/modals';
 
 import { DLayout } from './dashboard/components/DLayout';
-
+import { getServerSession } from "next-auth/next"
+import { authOptions } from '../api/auth/[...nextauth]/route';
 
 const inter = Inter({ subsets: ['latin'] })
 export const sarabun = Sarabun({
@@ -22,11 +23,13 @@ export const metadata: Metadata = {
   description: 'KPI tag',
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  const session = await getServerSession(authOptions)
+
   return (
     <html lang="en">
         <head>
@@ -36,7 +39,7 @@ export default function RootLayout({
         <MantineProvider theme={theme}>
           <Notifications />
           <ModalsProvider>
-            <DLayout>{children}</DLayout> 
+            <DLayout session={session}>{children}</DLayout> 
           </ModalsProvider>
         </MantineProvider>
       </body>

@@ -24,9 +24,7 @@ export function DLayout({children, session} : {children: React.ReactNode, sessio
           <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
           <Title visibleFrom='sm'>PMAS</Title>
           <Group>
-            <Text>
-                Welcome 
-            </Text>
+            { session && <Text> Welcome {session?.user?.name}</Text>}
             <Button onClick={ () => {
               signOut({ callbackUrl: '/'})
             }}>
